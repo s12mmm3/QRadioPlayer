@@ -18,19 +18,19 @@ jobs:
           # 6.9.0
           - qt_version: 6.9.0
             qt_arch: linux_gcc_64
-            modules: 'qthttpserver qtwebsockets'
+            modules: 'qthttpserver qtwebsockets qtmultimedia'
             cross_qt_arch: 'android_arm64_v8a'
           - qt_version: 6.9.0
             qt_arch: linux_gcc_64
-            modules: 'qthttpserver qtwebsockets'
+            modules: 'qthttpserver qtwebsockets qtmultimedia'
             cross_qt_arch: 'android_armv7'
           - qt_version: 6.9.0
             qt_arch: linux_gcc_64
-            modules: 'qthttpserver qtwebsockets'
+            modules: 'qthttpserver qtwebsockets qtmultimedia'
             cross_qt_arch: 'android_x86'
           - qt_version: 6.9.0
             qt_arch: linux_gcc_64
-            modules: 'qthttpserver qtwebsockets'
+            modules: 'qthttpserver qtwebsockets qtmultimedia'
             cross_qt_arch: 'android_x86_64'
     env:
       Repository_Name: 'QRadioPlayer'
