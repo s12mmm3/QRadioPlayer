@@ -1,6 +1,7 @@
 #include "utility.h"
 #include "logger.h"
 #include "manager/apimgr.h"
+#include "manager/logmgr.h"
 #include "globalconst.h"
 
 #include "dumpcatcher.h"
@@ -29,6 +30,7 @@ bool contextPropertys(QQmlEngine& engine)
 {
     engine.rootContext()->setContextProperty("$utility", &utility);
     engine.rootContext()->setContextProperty("$apimgr", ApiMgr::instance());
+    engine.rootContext()->setContextProperty("$logmgr", LogMgr::instance());
 
     engine.rootContext()->setContextProperty("$appname", APPLICATION_NAME);
     return true;

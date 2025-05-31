@@ -1,6 +1,6 @@
 # QRadioPlayer
 
-基于Qt实现的 网易云音乐 广播电台客户端
+基于Qt实现的 网络广播电台客户端
 
 [![GitHub Actions CI Status](https://github.com/s12mmm3/QRadioPlayer/actions/workflows/windows.yml/badge.svg)](https://github.com/s12mmm3/QRadioPlayer/actions/workflows/windows.yml)
 
@@ -10,7 +10,7 @@
 
 ## 简介
 
-基于Qt实现的 网易云音乐 广播电台客户端
+基于Qt实现的 网络广播电台客户端
 
 支持跨平台和多种编译器编译，基于[Qt版 网易云音乐 API](https://github.com/s12mmm3/QCloudMusicApi)实现
 
