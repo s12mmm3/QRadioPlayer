@@ -103,7 +103,7 @@ set(RESOURCES
     "qtquickcontrols2.conf"
 )
 qt_add_qml_module(${PROJECT_NAME}
-    URI ${PROJECT_NAME}
+    URI main
     NO_RESOURCE_TARGET_PATH
     QML_FILES ${QML_FILES} ${QML_SINGLETONS}
     RESOURCES ${RESOURCES} ${FONTS}
