@@ -7,7 +7,7 @@ set(QT_NO_MISSING_CATALOG_LANGUAGE_WARNING ON)
 
 # QTBUG-126167
 find_package(Qt6 REQUIRED
-    COMPONENTS Core Gui Quick QuickControls2 LinguistTools Network Concurrent Widgets Multimedia
+    COMPONENTS Core Gui Quick QuickControls2 LinguistTools Network Concurrent Widgets Multimedia Qml LinguistTools
 )
 
 if (WIN32)
@@ -122,6 +122,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Concurrent
     Qt6::Widgets
     Qt6::Multimedia
+    Qt6::Qml
     QCloudMusicApi
 )
 
