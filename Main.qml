@@ -20,14 +20,6 @@ ApplicationWindow {
 
     required property var builtInStyles
 
-    readonly property var typeList: [
-        UIEnum.FT_DownloadLyric,
-        UIEnum.FT_UploadWiki,
-        UIEnum.FT_UploadUserCheck,
-        UIEnum.FT_LyricTool,
-        666,
-    ]
-
     menuBar: MenuBar {
         AccountMenu { }
     }
