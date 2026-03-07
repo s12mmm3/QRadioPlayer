@@ -42,7 +42,7 @@ include_directories(3rdparty/QCloudMusicApi)
 
 qt_standard_project_setup(
     REQUIRES 6.8
-    I18N_TRANSLATED_LANGUAGES zh_CN zh_TW en_US de_DE fr_FR ar_SA ja_JP ko_KR pl_PL pt_BR pt_PT ru_RU es_ES uk_UA
+    # I18N_TRANSLATED_LANGUAGES zh_CN zh_TW en_US de_DE fr_FR ar_SA ja_JP ko_KR pl_PL pt_BR pt_PT ru_RU es_ES uk_UA
 )
 
 FILE(GLOB SOURCES "./*.h" "./*.cpp" "./*.qrc" "manager/*" "task/*" "app/*")
@@ -53,10 +53,10 @@ qt_add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE
     # "icon.rc"
 )
 
-qt_add_translations(TARGETS ${PROJECT_NAME}
-    TS_OUTPUT_DIRECTORY translations
-    MERGE_QT_TRANSLATIONS
-)
+# qt_add_translations(TARGETS ${PROJECT_NAME}
+#     TS_OUTPUT_DIRECTORY translations
+#     MERGE_QT_TRANSLATIONS
+# )
 
 if(EMSCRIPTEN)
     target_link_options(${PROJECT_NAME} PUBLIC -sASYNCIFY -Os)
