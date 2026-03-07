@@ -34,6 +34,10 @@ Page {
         let ret = $apimgr.invoke("broadcast_category_region_get", {})
         root.regionList = [{ "name": "全部", "id": 0 }].concat(ret?.data?.regionList)
         root.categoryList = [{ "name": "全部", "id": 0 }].concat(ret?.data?.categoryList)
+
+        comboBox_region.currentIndex = 1
+        comboBox_category.currentIndex = 0
+
         update()
     }
 
@@ -64,18 +68,29 @@ Page {
                         id: delegate
                         required property var modelData
                         required property int index
-                        contentItem: Column {
-                            width: 80
+                        contentItem: Row {
                             spacing: 5
-                            Label {
-                                width: parent.width
-                                text: delegate.modelData.regionName
-                                elide: Text.ElideRight
+                            Image {
+                                width: height
+                                height: 60
+                                source: delegate.modelData.coverUrl || ""
+                                anchors.verticalCenter: parent.verticalCenter
                             }
-                            Label {
-                                width: parent.width
-                                text: delegate.modelData.name
-                                elide: Text.ElideRight
+
+                            Column {
+                                anchors.verticalCenter: parent.verticalCenter
+                                width: 100
+                                spacing: 5
+                                Label {
+                                    width: parent.width
+                                    text: delegate.modelData.regionName
+                                    elide: Text.ElideRight
+                                }
+                                Label {
+                                    width: parent.width
+                                    text: delegate.modelData.name
+                                    elide: Text.ElideRight
+                                }
                             }
                         }
                         onClicked: {
