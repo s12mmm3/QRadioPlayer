@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import QtMultimedia
 
 import "."
+import "../common"
 import UIEnum
 import HelperError
 
@@ -51,56 +52,18 @@ Page {
 
     ColumnLayout {
         anchors.fill: parent
-        ScrollablePage {
+        ItemFlowPage {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            clip: true
-            Flow {
-                // 子项移动动画
-                move: ToolSingleton.transition
-                // 子项添加动画
-                add: ToolSingleton.transition
-                populate: ToolSingleton.transition
-
-                Repeater {
-                    model: root.model
-                    ItemDelegate {
-                        id: delegate
-                        required property var modelData
-                        required property int index
-                        contentItem: Row {
-                            spacing: 5
-                            Image {
-                                width: height
-                                height: 60
-                                source: delegate.modelData.coverUrl || ""
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-
-                            Column {
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: 100
-                                spacing: 5
-                                Label {
-                                    width: parent.width
-                                    text: delegate.modelData.regionName
-                                    elide: Text.ElideRight
-                                }
-                                Label {
-                                    width: parent.width
-                                    text: delegate.modelData.name
-                                    elide: Text.ElideRight
-                                }
-                            }
-                        }
-                        onClicked: {
-                            let ret = $apimgr.invoke("broadcast_channel_currentinfo", { "id": delegate.modelData.id })
-                            let playUrl = ret?.data?.playUrl || ""
-                            mediaPlayer.source = playUrl
-                            mediaPlayer.play()
-                        }
-                    }
-                }
+            model: root.model.map(i => Object.assign({}, i, {
+                                                         "imgUrl": i.coverUrl || "",
+                                                         "names": [ i.regionName, i.name, ],
+                                                     }))
+            onClicked: function(modelData) {
+                let ret = $apimgr.invoke("broadcast_channel_currentinfo", { "id": modelData.id })
+                let playUrl = ret?.data?.playUrl || ""
+                mediaPlayer.source = playUrl
+                mediaPlayer.play()
             }
         }
     }

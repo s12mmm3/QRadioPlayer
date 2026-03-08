@@ -12,20 +12,10 @@ import UIEnum
 
 Item {
     id: root
-    property alias transition: transition
-    Transition {
-        id: transition
-        ParallelAnimation { // 并行动画
-            NumberAnimation {
-                properties: "x"
-                duration: 200
-                easing.type: Easing.OutQuad
-            }
-            NumberAnimation {
-                properties: "y"
-                duration: 200
-                easing.type: Easing.OutQuad
-            }
-        }
+
+    // 获取图片url的尺寸参数
+    function getImgParam(fixedSize = 80) {
+        let ratio = Screen.devicePixelRatio
+        return `?param=${Math.round(fixedSize * ratio)}y${Math.round(fixedSize * ratio)}`
     }
 }
