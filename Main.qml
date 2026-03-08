@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtMultimedia
 
 import "."
 import UIEnum
@@ -59,5 +60,24 @@ ApplicationWindow {
         modal: true
         focus: true
         anchors.centerIn: parent
+    }
+
+    MediaPlayer {
+        id: mediaPlayer
+        audioOutput: AudioOutput {
+            id: audio
+            muted: playbackControl.muted
+            volume: playbackControl.volume
+        }
+        property var callback
+        onPlaybackStateChanged: {
+            if (callback) callback()
+        }
+    }
+
+    footer: PlaybackControl {
+        id: playbackControl
+
+        mediaPlayer: mediaPlayer
     }
 }
