@@ -1,45 +1,51 @@
-// Copyright (C) 2021 The Qt Company Ltd.
+// Copyright (C) 2024 The Qt Company Ltd.
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import QtMultimedia
 
 Item {
-    id: root
+    id: audioController
 
-    required property MediaPlayer mediaPlayer
-    property bool muted: false
-    property real volume: volumeSlider.value/100.
+    property alias busy: slider.pressed
+    //! [0]
+    property alias muted: muteButton.checked
+    property real volume: slider.value
+    //! [0]
+    property alias showSlider: slider.visible
+    property int iconDimension: 24
 
-    implicitHeight: buttons.height
+    implicitHeight: 46
+    implicitWidth: mainLayout.width
 
     RowLayout {
-        anchors.fill: parent
+        id: mainLayout
+        spacing: 10
+        anchors.verticalCenter: parent.verticalCenter
 
-        Item {
-            id: buttons
-
-            width: muteButton.implicitWidth
-            height: muteButton.implicitHeight
-
-            RoundButton {
-                id: muteButton
-                radius: 50.0
-                icon.source: muted ? "qrc:///Mute_Icon.svg" : "qrc:///Speaker_Icon.svg"
-                onClicked: { muted = !muted }
-            }
+        RoundButton {
+            id: muteButton
+            implicitHeight: 40
+            implicitWidth: 40
+            radius: 4
+            icon.source: audioController.muted ? "../images/volume_mute.svg" : "../images/volume.svg"
+            icon.width: audioController.iconDimension
+            icon.height: audioController.iconDimension
+            icon.color: palette.buttonText
+            flat: true
+            checkable: true
         }
 
         Slider {
-            id: volumeSlider
+            id: slider
+            visible: !audioController.showSlider
+            implicitWidth: 136
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
 
-            enabled: true
-            to: 100.0
-            value: 100.0
+            enabled: !audioController.muted
+            value: 1
         }
     }
 }

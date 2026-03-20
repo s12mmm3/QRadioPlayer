@@ -88,12 +88,12 @@ qt_add_qml_module(${PROJECT_NAME}
 
 if (ANDROID)
     # set(QT_ANDROID_BUILD_ALL_ABIS ON)
-    # set_target_properties(${PROJECT_NAME}
-    #     PROPERTIES
-    #     QT_ANDROID_PACKAGE_NAME com.overwriter.${PROJECT_NAME}
+    set_target_properties(${PROJECT_NAME}
+        PROPERTIES
+        QT_ANDROID_PACKAGE_NAME com.overwriter.${PROJECT_NAME}
     #     QT_ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/android"
     #     QT_ANDROID_APP_ICON "@mipmap/ic_launcher"
-    # )
+    )
 
     include(FetchContent)
     FetchContent_Declare(
