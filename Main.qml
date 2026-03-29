@@ -14,6 +14,7 @@ ApplicationWindow {
     height: 720
     visible: true
     title: $appname
+    font: Application.font
 
     property alias source: mediaPlayer.source
     property alias playbackRate: mediaPlayer.playbackRate

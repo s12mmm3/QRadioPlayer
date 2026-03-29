@@ -11,8 +11,18 @@
 ## 简介
 
 基于Qt实现的 网络广播电台客户端
+支持播放广播电台、最嗨电音、古典电台和爵士电台
 
-支持跨平台和多种编译器编译，基于[Qt版 网易云音乐 API](https://github.com/s12mmm3/QCloudMusicApi)实现
+支持跨平台 (Windows, macOS, Linux, Android, iOS) 和多种编译器编译，基于[Qt版 网易云音乐 API](https://github.com/s12mmm3/QCloudMusicApi)实现
+
+
+<p align=center>
+    <img alt="Screenshot" src="./static/screenshot0.png">
+</p>
+
+<p align=center>
+    <img alt="Screenshot" src="./static/screenshot1.png">
+</p>
 
 ### 目录
 
