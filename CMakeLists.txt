@@ -33,8 +33,8 @@ elseif (EMSCRIPTEN)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pthread -s USE_PTHREADS=1 -s SHARED_MEMORY=1")
 endif()
 
-set(BUILD_SHARED_LIBS OFF)
-set(MUSICAPI_TEST OFF)
+set(QCLOUDMUSICAPI_BUILD_SHARED OFF CACHE BOOL "Build QCloudMusicApi as a shared library" FORCE)
+set(QCLOUDMUSICAPI_BUILD_TEST OFF CACHE BOOL "Build QCloudMusicApi tests" FORCE)
 
 add_subdirectory(3rdparty/QCloudMusicApi)
 include_directories(3rdparty/QCloudMusicApi)
